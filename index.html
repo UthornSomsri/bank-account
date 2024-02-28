@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="th">
 <head>
     <base target="_top">
@@ -11,3 +11,203 @@
     <iframe style="width: 100%; height: 100vh;" scrolling="yes" src="https://script.google.com/macros/s/AKfycbwMUvYEoK9wbSOHA7OAH0qanpD5mf5Ra38nuersPb6m7Uph-eUyGFwgD9BHrJne-gP4/exec" frameborder="0"></iframe>
 </body>
 </html>
+ -->
+
+
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <!-- CDN ไอคอนธนาคารไทยสำหรับเว็บไซต์ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/semicon/finances-logo/iconbanks.min.css">
+    <title>เลขบัญชี</title>
+    <style>
+        body {
+            height: 100%;
+            font-family: 'Mitr', sans-serif;
+            background: #000000;
+        }
+        /* .textbox {
+            background: #030125;
+            border-radius: 30px;
+        } */
+        
+        #box0 {
+            background: #2e3a3b;
+            border-radius: 30px;
+        }
+        
+        #box1 {
+            background: #080b52;
+            border-radius: 30px;
+        }
+        
+        #box2 {
+            background: #062411;
+            border-radius: 30px;
+        }
+        
+        .container {
+            max-width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="toast align-items-center align-self-center bg-success text-light fixed-top" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="toast-body text-center">
+                    ✅ คัดลอกเรียบร้อยแล้ว
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col align-middle text-center col-md-5 textbox" id="box0">
+                <div class="m-3">
+                    <i class="fas fa-exclamation-circle text-warning"></i>
+                    <span class="text-warning">&emsp; เลขบัญชีใช้ในการโอนเงิน</span>
+                </div>
+
+            </div>
+            <div class="row justify-content-center m-3">
+                <div class="col align-middle text-center col-md-5 textbox m-1" id="box1">
+                    <div class="m-3">
+                        <i class="bank bank-bbl  biggest rounded-circle"></i>
+                        <p class="text-sm-center text-white mt-2">ธนาคารกรุงเทพ</p>
+                        <p class="text-lg-center text-white mt-2"><strong id="bankNo">0097459374</strong></p>
+                        <button class="btn mt-3" onclick="copy('bank')">
+              <i class="fas fa-copy text-warning"></i>
+              <span style="color: rgb(247, 117, 225);">&ensp;คัดลอก</span>
+            </button>
+                    </div>
+
+                </div>
+                <div class="col align-middle text-center col-md-5 textbox m-1" id="box2">
+                    <div class="m-3">
+                        <i class="bank bank-kbank  biggest rounded-circle"></i>
+
+                        <p class="text-sm-center text-white mt-2">ธนาคารกสิกรไทย</p>
+                        <p class="text-lg-center text-white mt-2"><strong id="walletNo">1258547523</strong></p>
+                        <button class="btn mt-3" onclick="copy('wallet')">
+              <i class="fas fa-copy text-warning"></i>
+              <span style="color: rgb(247, 117, 225);">&ensp;คัดลอก</span>
+            </button>
+                    </div>
+
+                </div>
+
+                <div class="col-12 text-light text-center" style="font-size: 24px;">
+                    ชื่อบัญชี: อุทร สมศรี
+                    <p class="text-md-center text-muted mt-2">Uthorn Somsri</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-5">
+            <div class="col-12 align-middle text-center">
+                <div class="rounded bg-dark m-2 p-2">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <i class="bank bank-pp huge"></i>
+                        <span class="text-light ms-2">สแกนจ่าย QRcode</span>
+                    </div>
+
+
+                    <div class="row p-2 g-3">
+                        <div class="col-12">
+                            <input style="border-radius: 20px;" type="number" inputmode="numeric" id="amount" min="0" step="1" class="form-control text-center bg-dark text-light shadow-none" placeholder="ระบุจำนวนเงิน">
+                        </div>
+                        <div class="col-12">
+                            <img crossOrigin="anonymous" src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=&choe=UTF-8" alt="" id="promptpay-qr-img" class="img-fluid rounded">
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-warning " id="save-img" style="border-radius: 20px;">บันทึกภาพ QRcode</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function(toastEl) {
+            return new bootstrap.Toast(toastEl, {
+                delay: 2000
+            })
+        })
+
+        function copy(element) {
+            let $temp
+            if (element == 'bank') {
+                $temp = $('<input>')
+                $('body').append($temp)
+                $temp.val($('#bankNo').html()).select()
+            } else {
+                $temp = $('<input>')
+                $('body').append($temp)
+                $temp.val($('#walletNo').html()).select()
+            }
+
+            document.execCommand('copy')
+            $temp.remove()
+            toastList[0].show()
+        }
+
+
+        $(document).ready(() => {
+            let x = promptpayQr('1320700153069', {
+                amount: 0
+            })
+            $('#promptpay-qr-img').attr('src', 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=' + x + '&choe=UTF-8')
+            $('#amount').on('input', () => {
+                if ($('#amount').val() == '') {
+                    $('#amount').val(0)
+                }
+
+                let x = promptpayQr('1320700153069', {
+                    amount: Number($('#amount').val())
+                })
+                $('#promptpay-qr-img').attr('src', 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=' + x + '&choe=UTF-8')
+            })
+
+            $('#save-img').on('click', () => {
+                // download image, do no open new tab
+                let canvas = document.createElement('canvas')
+                canvas.width = 300
+                canvas.height = 300
+                let ctx = canvas.getContext('2d')
+                ctx.drawImage(document.getElementById('promptpay-qr-img'), 0, 0)
+                let dataurl = canvas.toDataURL('image/png')
+                var a = document.createElement('a')
+                a.href = dataurl
+                a.download = 'promptpay-qr.png'
+                document.body.appendChild(a)
+                a.click()
+                document.body.removeChild(a)
+            })
+        })
+        var promptpayQr
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="module">
+        import promptpayQr from 'https://cdn.jsdelivr.net/npm/promptpay-qr@0.5.0/+esm'; window.promptpayQr = promptpayQr
+    </script>
+</body>
+
+</html>
+
+
+<!-- Cradit อ.ดรัณภพ ยิ้มแย้ม -->
