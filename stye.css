@@ -1,0 +1,258 @@
+body {
+    height: 100%;
+    --s: 37px;
+    /* control the size */
+    --c: #0000, #121314 0.5deg 119.5deg, #0000 120deg;
+    --g1: conic-gradient(from 60deg at 56.25% calc(425% / 6), var(--c));
+    --g2: conic-gradient(from 180deg at 43.75% calc(425% / 6), var(--c));
+    --g3: conic-gradient(from -60deg at 50% calc(175% / 12), var(--c));
+    background: var(--g1), var(--g1) var(--s) calc(1.73 * var(--s)), var(--g2), var(--g2) var(--s) calc(1.73 * var(--s)), var(--g3) var(--s) 0, var(--g3) 0 calc(1.73 * var(--s)) #1e1e1e;
+    background-size: calc(2 * var(--s)) calc(3.46 * var(--s));
+}
+
+.textbox {
+    background: #030125;
+    border-radius: 30px;
+}
+
+#box0 {
+    background: #2e3a3b;
+    border-radius: 30px;
+}
+
+#box1 {
+    background: #080b52;
+    border-radius: 30px;
+}
+
+#box2 {
+    background: #062411;
+    border-radius: 30px;
+}
+
+.container {
+    max-width: 600px;
+}
+
+img {
+    width: 50%;
+    height: auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    /* กำหนดให้เรียงเนื้อหาแนวดิ่ง */
+    justify-content: space-between;
+    /* จัดเนื้อหาให้อยู่ด้านล่างของ card */
+    width: 400px;
+    /* กำหนดความกว้างของ card */
+    height: 600px;
+    /* ให้ความสูงปรับเป็นอัตโนมัติเพื่อรักษาสัดส่วน */
+    border: 2px solid #3498db;
+    /* เพิ่มเส้นขอบสีน้ำเงิน */
+    border-radius: 15px;
+    /* เพิ่มขอบมนเวียน */
+    padding: 10px;
+    /* เพิ่มช่องว่างรอบขอบ */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    /* กำหนดให้ตำแหน่งเป็น relative เพื่อให้สามารถใช้คำสั่ง position ได้ */
+}
+
+#logpp {
+    width: 100%;
+    /* กำหนดความกว้างของรูปภาพให้เต็ม card */
+    height: auto;
+    /* ให้ความสูงปรับเป็นอัตโนมัติเพื่อรักษาสัดส่วน */
+    border-radius: 5px;
+    /* เพิ่มขอบมนเวียน */
+}
+
+.container2 {
+    display: flex;
+    justify-content: center;
+    /* จัดกึ่งกลางแนวนอน */
+    align-items: center;
+}
+
+#promptpay-qr-img2 {
+    position: absolute;
+    /* กำหนดให้เป็นตำแหน่ง absolute เพื่อให้สามารถควบคุมตำแหน่งได้ */
+    top: 55%;
+    /* จัดให้อยู่ที่กึ่งกลางด้านบนของ card */
+    left: 50%;
+    /* จัดให้อยู่ที่กึ่งกลางด้านซ้ายของ card */
+    transform: translate(-50%, -50%);
+    /* ขยับตำแหน่งให้อยู่ที่กึ่งกลางของ card */
+    width: 70%;
+    /* กำหนดความกว้างของรูปภาพให้เต็ม card */
+    height: auto;
+}
+
+.card-body {
+    margin-top: auto;
+    /* ขยับ card-body ไปที่ด้านล่างของ card */
+    text-align: center;
+    /* จัดให้เนื้อหาอยู่กึ่งกลางแนวนอน */
+}
+
+.navbar {
+    margin-top: auto;
+    /* ขยับ navbar ไปที่ด้านล่างของ card */
+    width: 100%;
+    height: 13%;
+    /* กำหนดความกว้างของ navbar */
+    background-color: rgb(0, 119, 249);
+    /* สีพื้นหลังของ navbar */
+    text-align: center;
+    /* จัดให้เนื้อหาอยู่กึ่งกลาง */
+    padding: 10px;
+    /* เพิ่มช่องว่างรอบเนื้อหาของ navbar */
+    border-bottom-left-radius: 5px;
+    /* เพิ่มขอบมนเวียนด้านล่างซ้ายของ navbar */
+    border-bottom-right-radius: 5px;
+    /* เพิ่มขอบมนเวียนด้านล่างขวาของ navbar */
+    font-family: 'Mitr', sans-serif;
+    /* เลือกฟอนต์ */
+    font-size: 16px;
+    /* ขนาดฟอนต์ */
+    color: #fff;
+    /* สีของตัวอักษร */
+    font-style: bold;
+    /* รูปแบบตัวอักษร */
+}
+
+
+/* CSS */
+
+.button-71 {
+    background-color: #0078d0;
+    border: 0;
+    border-radius: 56px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    outline: 0;
+    padding: 16px 21px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    font-family: 'Mitr', sans-serif;
+}
+
+.button-71:before {
+    background-color: initial;
+    background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+    border-radius: 125px;
+    content: "";
+    height: 50%;
+    left: 4%;
+    opacity: .5;
+    position: absolute;
+    top: 0;
+    transition: all .3s;
+    width: 92%;
+}
+
+.button-71:hover {
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+    .button-71 {
+        padding: 16px 48px;
+    }
+}
+
+
+/* CSS */
+
+.button-90 {
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 100px;
+    background-color: #4C43CD;
+    background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 87% at 26% 20%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: 2px 19px 31px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    font-size: 16px;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    cursor: pointer;
+    font-family: 'Mitr', sans-serif;
+}
+
+.card1 {
+    position: relative;
+    width: 280px;
+    height: 100px;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+}
+
+.card1::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -5px;
+    margin: auto;
+    width: 290px;
+    height: 110px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card1::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+}
+
+.heading {
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 700;
+    font-family: 'Mitr', sans-serif;
+}
+
+.card1 p:not(.heading) {
+    font-size: 14px;
+}
+
+.card1 p:last-child {
+    color: #e81cff;
+    font-weight: 600;
+}
+
+.card1:hover::after {
+    filter: blur(30px);
+}
+
+.card1:hover::before {
+    transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+}
