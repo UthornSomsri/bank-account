@@ -76,7 +76,7 @@ img {
     align-items: center;
 }
 
-#promptpay-qr-img2 {
+#promptpay-qr-img {
     position: absolute;
     /* กำหนดให้เป็นตำแหน่ง absolute เพื่อให้สามารถควบคุมตำแหน่งได้ */
     top: 55%;
