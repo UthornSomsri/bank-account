@@ -88,8 +88,8 @@
                 <div class="col-12">
                     <input style="border-radius: 20px;" type="number" inputmode="numeric" id="amount" min="0" step="1" class="form-control text-center bg-dark text-light shadow-none" placeholder="ระบุจำนวนเงิน">
                 </div>
-                <div class="col-12" style="display: none;">
-                    <!-- <img crossOrigin="anonymous" src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=&choe=UTF-8" alt="" id="promptpay-qr-img" class="img-fluid rounded"> -->
+                <div class="col-12">
+                    <!-- <img crossOrigin="anonymous" alt="" id="promptpay-qr-img" class="img-fluid rounded"> -->
                 </div>
                 <!-- <div class="col-12">
                         <button class="btn btn-warning " id="save-img" style="border-radius: 20px;">บันทึกภาพ QRcode</button>
@@ -98,11 +98,10 @@
         </div>
     </div>
 
-    <div class="container2 justify-content-center">
-        <div class="card ">
+    <div class="container2">
+        <div class="card">
             <img id="logpp" src="img/PromptPay-logo.png" alt="Girl in a jacket">
-            <!-- <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=&choe=UTF-8" alt="" id="promptpay-qr-img2" class="img-fluid rounded"> -->
-            <img crossOrigin="anonymous" src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=&choe=UTF-8" alt="" id="promptpay-qr-img" class="img-fluid rounded">
+            <img crossOrigin="anonymous" alt="" id="promptpay-qr-img" class="img-fluid rounded">
             <nav class="navbar" style="background-color: rgb(0, 119, 249);">
                 <p>ชื่อบัญชี&emsp;อุทร&emsp;สมศรี</p>
                 <p>หมายเลขพร้อมเพย์ 1320700153069</p>
@@ -122,10 +121,71 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./script.js"></script>
+    <!-- <script src="./script.js"></script> -->
 
     <script type="module">
         import promptpayQr from 'https://cdn.jsdelivr.net/npm/promptpay-qr@0.5.0/+esm'; window.promptpayQr = promptpayQr
+    </script>
+
+    <script>
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function(toastEl) {
+            return new bootstrap.Toast(toastEl, {
+                delay: 2000
+            })
+        })
+
+        function copy(element) {
+            let $temp
+            if (element == 'bank') {
+                $temp = $('<input>')
+                $('body').append($temp)
+                $temp.val($('#bankNo').html()).select()
+            } else {
+                $temp = $('<input>')
+                $('body').append($temp)
+                $temp.val($('#walletNo').html()).select()
+            }
+
+            document.execCommand('copy')
+            $temp.remove()
+            toastList[0].show()
+        }
+
+
+        $(document).ready(() => {
+            let x = promptpayQr('0904017402', {
+                amount: 0
+            })
+            $('#promptpay-qr-img').attr('src', 'https://api.qrserver.com/v1/create-qr-code/?data=' + x + '&size=300x300&margin=10')
+            $('#amount').on('input', () => {
+                if ($('#amount').val() == '') {
+                    $('#amount').val(0)
+                }
+
+                let x = promptpayQr('0904017402', {
+                    amount: Number($('#amount').val())
+                })
+                $('#promptpay-qr-img').attr('src', 'https://api.qrserver.com/v1/create-qr-code/?data=' + x + '&size=300x300&margin=10')
+            })
+
+            $('#save-img').on('click', () => {
+                // download image, do no open new tab
+                let canvas = document.createElement('canvas')
+                canvas.width = 300
+                canvas.height = 300
+                let ctx = canvas.getContext('2d')
+                ctx.drawImage(document.getElementById('promptpay-qr-img'), 0, 0)
+                let dataurl = canvas.toDataURL('image/png')
+                var a = document.createElement('a')
+                a.href = dataurl
+                a.download = 'promptpay-qr.png'
+                document.body.appendChild(a)
+                a.click()
+                document.body.removeChild(a)
+            })
+        })
+        var promptpayQr
     </script>
 
 </body>
