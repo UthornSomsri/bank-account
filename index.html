@@ -154,7 +154,7 @@
 
 
         $(document).ready(() => {
-            let x = promptpayQr('0904017402', {
+            let x = promptpayQr('1320700153069', {
                 amount: 0
             })
             $('#promptpay-qr-img').attr('src', 'https://api.qrserver.com/v1/create-qr-code/?data=' + x + '&size=300x300&margin=10')
@@ -163,7 +163,7 @@
                     $('#amount').val(0)
                 }
 
-                let x = promptpayQr('0904017402', {
+                let x = promptpayQr('1320700153069', {
                     amount: Number($('#amount').val())
                 })
                 $('#promptpay-qr-img').attr('src', 'https://api.qrserver.com/v1/create-qr-code/?data=' + x + '&size=300x300&margin=10')
